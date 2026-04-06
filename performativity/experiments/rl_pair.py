@@ -565,6 +565,11 @@ def run_experiment(config: ExperimentConfig) -> dict:
             }
             for eps, mr in match_results.items()
         },
+        "matched_instance_ids": sorted(matched_ids),
+        "pass_rates": {
+            "base": base_pass_rates,
+            "post_trained": pt_pass_rates,
+        },
         "probes": {
             k: {"layer": v["layer"], "accuracy": v["accuracy"]}
             for k, v in probe_results.items()
